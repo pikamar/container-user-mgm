@@ -4,8 +4,8 @@
 
 FROM python:2.7-slim
 
-RUN addgroup flask \
-    && adduser -s /bin/sh -D -G flask flask
+RUN addgroup flask 
+RUN adduser --ingroup flask flask
 
 RUN mkdir -p /microservice
 
@@ -14,7 +14,7 @@ RUN pip install -r /microservice/requirements.txt
 
 RUN pip install ansible
 
-ADD . /webapp
+ADD . /microservice
 
 RUN chown -R flask:flask /microservice
 
