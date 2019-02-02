@@ -1,8 +1,11 @@
 version: '3'
 services:
   container-user-mgm:
+    container_name: container-user-mgm
+    restart: always
     image: container-user-mgm:1.0
     ports:
      - "8100:5000"
     volumes:
      - /opt/nginx:/opt/nginx
+     - ./app:/microservice/app
